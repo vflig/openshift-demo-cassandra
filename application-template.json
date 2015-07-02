@@ -1,0 +1,291 @@
+{
+  "kind": "Template",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "app-sample",
+    "creationTimestamp": null
+  },
+  "objects": [
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "app-image",
+        "creationTimestamp": null
+      },
+      "spec": {},
+      "status": {
+        "dockerImageRepository": ""
+      }
+    },
+    {
+      "kind": "BuildConfig",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "app-build",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "app-build"
+        }
+      },
+      "spec": {
+        "triggers": [
+          {
+            "type": "github",
+            "github": {
+              "secret": "secret101"
+            }
+          },
+          {
+            "type": "generic",
+            "generic": {
+              "secret": "secret101"
+            }
+          }
+        ],
+        "source": {
+          "type": "Git",
+          "git": {
+            "uri": "git://bitbucket.org/ichbinana/openshift-demo.git"
+          }
+        },
+        "strategy": {
+          "type": "Source",
+          "sourceStrategy": {
+            "from": {
+              "kind": "DockerImage",
+              "name": "java:8"
+            },
+            "incremental": true
+          }
+        },
+        "output": {
+          "to": {
+            "kind": "ImageStreamTag",
+            "name": "app-image:test"
+          }
+        },
+        "resources": {}
+      },
+      "status": {
+        "lastVersion": 0
+      }
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "frontend",
+        "creationTimestamp": null
+      },
+      "spec": {
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8181,
+            "targetPort": 8181,
+            "nodePort": 0
+          }
+        ],
+        "selector": {
+          "name": "frontend"
+        },
+        "portalIP": "",
+        "type": "ClusterIP",
+        "sessionAffinity": "None"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "DeploymentConfig",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "frontend",
+        "creationTimestamp": null
+      },
+      "spec": {
+        "strategy": {
+          "type": "Recreate",
+          "resources": {}
+        },
+        "triggers": [
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "app-container"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "name": "app-image:test"
+              },
+              "lastTriggeredImage": ""
+            }
+          }
+        ],
+        "replicas": 1,
+        "selector": {
+          "name": "frontend"
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "name": "frontend"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "app-container",
+                "image": "app-image:test",
+                "ports": [
+                  {
+                    "containerPort": 8181,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "DB_HOST",
+                    "value": "localhost"
+                  },
+                  {
+                    "name": "DB_USERNAME",
+                    "value": "root"
+                  },
+                  {
+                    "name": "DB_PASSWORD",
+                    "value": "${DB_ROOT_PASSWORD}"
+                  }
+                ],
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "imagePullPolicy": "IfNotPresent",
+                "capabilities": {},
+                "securityContext": {
+                  "capabilities": {},
+                  "privileged": false
+                }
+              }
+            ],
+            "restartPolicy": "Always",
+            "dnsPolicy": "ClusterFirst",
+            "serviceAccount": ""
+          }
+        }
+      },
+      "status": {}
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "database",
+        "creationTimestamp": null
+      },
+      "spec": {
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 3306,
+            "targetPort": 3306,
+            "nodePort": 0
+          }
+        ],
+        "selector": {
+          "name": "database"
+        },
+        "portalIP": "",
+        "type": "ClusterIP",
+        "sessionAffinity": "None"
+      },
+      "status": {
+        "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "DeploymentConfig",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "database",
+        "creationTimestamp": null
+      },
+      "spec": {
+        "strategy": {
+          "type": "Recreate",
+          "resources": {}
+        },
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          }
+        ],
+        "replicas": 1,
+        "selector": {
+          "name": "database"
+        },
+        "template": {
+          "metadata": {
+            "creationTimestamp": null,
+            "labels": {
+              "name": "database"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "database-container",
+                "image": "mysql",
+                "ports": [
+                  {
+                    "containerPort": 3306,
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": [
+                  {
+                    "name": "MYSQL_ROOT_PASSWORD",
+                    "value": "${DB_ROOT_PASSWORD}"
+                  },
+                  {
+                    "name": "MYSQL_DATABASE",
+                    "value": "${MYSQL_DATABASE}"
+                  }
+                ],
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "imagePullPolicy": "IfNotPresent",
+                "capabilities": {},
+                "securityContext": {
+                  "capabilities": {},
+                  "privileged": false
+                }
+              }
+            ],
+            "restartPolicy": "Always",
+            "dnsPolicy": "ClusterFirst",
+            "serviceAccount": ""
+          }
+        }
+      },
+      "status": {}
+    }
+  ],
+  "parameters": [
+    {
+      "name": "DB_ROOT_PASSWORD",
+      "description": "database password",
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{8}"
+    },
+    {
+      "name": "MYSQL_DATABASE",
+      "description": "database name",
+      "value": "todolist"
+    }
+  ]
+}

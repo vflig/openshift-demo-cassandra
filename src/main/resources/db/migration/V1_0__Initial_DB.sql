@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS todolist;
+
+CREATE TABLE IF NOT EXISTS todolist.todo
+(
+  id                   BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  text                 VARCHAR(128)    NOT NULL,
+  PRIMARY KEY (id)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8;
