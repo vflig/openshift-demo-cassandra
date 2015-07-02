@@ -46,7 +46,7 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "git://bitbucket.org/ichbinana/openshift-demo.git"
+            "uri": "git://github.com/ichbinana/openshift-demo"
           }
         },
         "strategy": {
