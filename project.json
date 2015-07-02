@@ -1,0 +1,17 @@
+{
+"kind": "Project",
+"apiVersion": "v1beta3",
+"metadata": {
+"name": "demo-project",
+"creationTimestamp": null,
+"labels": {
+"name": "demo-project"
+},
+"annotations": {
+"openshift.io/description": "This is an example project to demonstrate OpenShift v3",
+"openshift.io/display-name": "Openshift Demo"
+}
+},
+"spec": {},
+"status": {}
+}
