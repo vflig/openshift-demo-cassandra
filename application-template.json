@@ -26,7 +26,7 @@
         "creationTimestamp": null
       },
       "spec": {
-        "dockerImageRepository": "java"
+        "dockerImageRepository": ""
       },
       "status": {
         "dockerImageRepository": ""
