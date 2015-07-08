@@ -7,7 +7,6 @@
 *.ear
 .ant-targets-build.xml
 hs_err_pid*
-target/
 test-output/
 test/test-output
 test/logs
