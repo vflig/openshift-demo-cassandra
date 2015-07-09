@@ -1,0 +1,26 @@
+{
+    "kind": "Project",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "sample-project",
+        "selfLink": "/osapi/v1beta3/projects/sample-project",
+        "uid": "5bbe6c7d-264f-11e5-95a2-080027d02fbe",
+        "resourceVersion": "339",
+        "creationTimestamp": "2015-07-09T15:29:58Z",
+        "annotations": {
+            "openshift.io/description": "",
+            "openshift.io/display-name": "",
+            "openshift.io/sa.scc.mcs": "s0:c6,c5",
+            "openshift.io/sa.scc.uid-range": "1000040000/10000"
+        }
+    },
+    "spec": {
+        "finalizers": [
+            "openshift.io/origin",
+            "kubernetes"
+        ]
+    },
+    "status": {
+        "phase": "Active"
+    }
+}

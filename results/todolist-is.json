@@ -1,0 +1,28 @@
+{
+    "kind": "ImageStream",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "app-image",
+        "namespace": "todolist-project",
+        "selfLink": "/osapi/v1beta3/namespaces/todolist-project/imagestreams/app-image",
+        "uid": "37f6dab1-2651-11e5-95a2-080027d02fbe",
+        "resourceVersion": "1377",
+        "creationTimestamp": "2015-07-09T15:43:17Z"
+    },
+    "spec": {},
+    "status": {
+        "dockerImageRepository": "172.30.212.157:5000/todolist-project/app-image",
+        "tags": [
+            {
+                "tag": "latest",
+                "items": [
+                    {
+                        "created": "2015-07-09T15:48:13Z",
+                        "dockerImageReference": "172.30.212.157:5000/todolist-project/app-image@sha256:79c6250554a85b482f1e731a26d8e5b96ef25b9e574b98fa0095eba6a820a6ed",
+                        "image": "sha256:79c6250554a85b482f1e731a26d8e5b96ef25b9e574b98fa0095eba6a820a6ed"
+                    }
+                ]
+            }
+        ]
+    }
+}
