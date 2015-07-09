@@ -2,12 +2,12 @@
     "kind": "Build",
     "apiVersion": "v1",
     "metadata": {
-        "name": "ruby-sample-build-1",
+        "name": "ruby-sample-build-2",
         "namespace": "sample-project",
-        "selfLink": "/osapi/v1beta3/namespaces/sample-project/builds/ruby-sample-build-1",
-        "uid": "7a5ea6c2-264f-11e5-95a2-080027d02fbe",
-        "resourceVersion": "439",
-        "creationTimestamp": "2015-07-09T15:30:50Z",
+        "selfLink": "/osapi/v1beta3/namespaces/sample-project/builds/ruby-sample-build-2",
+        "uid": "47e04dc4-2656-11e5-95a2-080027d02fbe",
+        "resourceVersion": "2526",
+        "creationTimestamp": "2015-07-09T16:19:31Z",
         "labels": {
             "buildconfig": "ruby-sample-build",
             "name": "ruby-sample-build",
@@ -43,10 +43,10 @@
         "resources": {}
     },
     "status": {
-        "phase": "Failed",
-        "startTimestamp": "2015-07-09T15:30:51Z",
-        "completionTimestamp": "2015-07-09T15:31:41Z",
-        "duration": 50000000000,
+        "phase": "Complete",
+        "startTimestamp": "2015-07-09T16:19:33Z",
+        "completionTimestamp": "2015-07-09T16:22:19Z",
+        "duration": 166000000000,
         "config": {
             "kind": "BuildConfig",
             "namespace": "sample-project",
