@@ -1,0 +1,70 @@
+{
+    "kind": "DeploymentConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "frontend",
+        "namespace": "todolist-project",
+        "selfLink": "/osapi/v1beta3/namespaces/todolist-project/deploymentconfigs/frontend",
+        "uid": "3804f124-2651-11e5-95a2-080027d02fbe",
+        "resourceVersion": "1441",
+        "creationTimestamp": "2015-07-09T15:43:17Z"
+    },
+    "spec": {
+        "strategy": {
+            "type": "Recreate",
+            "resources": {}
+        },
+        "replicas": 1,
+        "selector": {
+            "name": "frontend"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "name": "frontend"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "app-container",
+                        "image": "app-image",
+                        "ports": [
+                            {
+                                "containerPort": 8181,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "env": [
+                            {
+                                "name": "DB_HOST",
+                                "value": "localhost"
+                            },
+                            {
+                                "name": "DB_USERNAME",
+                                "value": "root"
+                            },
+                            {
+                                "name": "DB_PASSWORD",
+                                "value": "73Jb57qI"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent",
+                        "securityContext": {
+                            "capabilities": {},
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "dnsPolicy": "ClusterFirst"
+            }
+        }
+    },
+    "status": {
+        "latestVersion": 1
+    }
+}

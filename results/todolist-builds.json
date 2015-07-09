@@ -1,0 +1,55 @@
+{
+    "kind": "Build",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "app-build-1",
+        "namespace": "todolist-project",
+        "selfLink": "/osapi/v1beta3/namespaces/todolist-project/builds/app-build-1",
+        "uid": "40efafd7-2651-11e5-95a2-080027d02fbe",
+        "resourceVersion": "1384",
+        "creationTimestamp": "2015-07-09T15:43:32Z",
+        "labels": {
+            "buildconfig": "app-build",
+            "name": "app-build"
+        }
+    },
+    "spec": {
+        "serviceAccount": "builder",
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "git://github.com/ichbinana/openshift-demo"
+            }
+        },
+        "strategy": {
+            "type": "Docker",
+            "dockerStrategy": {
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "library/java:8"
+                }
+            }
+        },
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "app-image:latest"
+            },
+            "pushSecret": {
+                "name": "builder-dockercfg-b9n2w"
+            }
+        },
+        "resources": {}
+    },
+    "status": {
+        "phase": "Complete",
+        "startTimestamp": "2015-07-09T15:43:40Z",
+        "completionTimestamp": "2015-07-09T15:48:26Z",
+        "duration": 286000000000,
+        "config": {
+            "kind": "BuildConfig",
+            "namespace": "todolist-project",
+            "name": "app-build"
+        }
+    }
+}
