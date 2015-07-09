@@ -72,7 +72,7 @@
           "dockerStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "name": "library/java:8"
+              "name": "java:8"
             }
           }
         },
