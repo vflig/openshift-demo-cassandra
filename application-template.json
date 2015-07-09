@@ -26,7 +26,7 @@
         "creationTimestamp": null
       },
       "spec": {
-        "dockerImageRepository": "java"
+        "dockerImageRepository": "library/java"
       },
       "status": {
         "dockerImageRepository": ""
@@ -72,7 +72,7 @@
           "dockerStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "name": "java:8"
+              "name": "library/java:8"
             }
           }
         },
