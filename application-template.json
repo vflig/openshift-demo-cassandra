@@ -65,7 +65,7 @@
         "output": {
           "to": {
             "kind": "ImageStreamTag",
-            "name": "app-image:test"
+            "name": "app-image:latest"
           }
         },
         "resources": {}
@@ -129,7 +129,7 @@
             "containers": [
               {
                 "name": "app-container",
-                "image": "app-image:test",
+                "image": "app-image:latest",
                 "ports": [
                   {
                     "containerPort": 8181,
