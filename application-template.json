@@ -113,7 +113,22 @@
           "type": "Recreate",
           "resources": {}
         },
-        "triggers": [],
+        "triggers": [
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": false,
+              "containerNames": [
+                "app-container"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "name": "app-image:latest"
+              },
+              "lastTriggeredImage": ""
+            }
+          }
+        ],
         "replicas": 1,
         "selector": {
           "name": "frontend"
