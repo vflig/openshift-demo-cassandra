@@ -19,6 +19,20 @@
       }
     },
     {
+      "kind": "ImageStream",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "java",
+        "creationTimestamp": null
+      },
+      "spec": {
+        "dockerImageRepository": "java"
+      },
+      "status": {
+        "dockerImageRepository": ""
+      }
+    },
+    {
       "kind": "BuildConfig",
       "apiVersion": "v1beta3",
       "metadata": {
@@ -57,7 +71,7 @@
           "type": "Docker",
           "dockerStrategy": {
             "from": {
-              "kind": "DockerImage",
+              "kind": "ImageStreamTag",
               "name": "java:8"
             }
           }
