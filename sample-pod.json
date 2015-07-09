@@ -1,0 +1,124 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "frontend-1-9cr09",
+        "generateName": "frontend-1-",
+        "namespace": "sample-project",
+        "selfLink": "/api/v1/namespaces/sample-project/pods/frontend-1-9cr09",
+        "uid": "ab449509-2656-11e5-95a2-080027d02fbe",
+        "resourceVersion": "2538",
+        "creationTimestamp": "2015-07-09T16:22:18Z",
+        "labels": {
+            "deployment": "frontend-1",
+            "deploymentconfig": "frontend",
+            "name": "frontend"
+        },
+        "annotations": {
+            "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"sample-project\",\"name\":\"frontend-1\",\"uid\":\"a795f9c6-2656-11e5-95a2-080027d02fbe\",\"apiVersion\":\"v1\",\"resourceVersion\":\"2515\"}}",
+            "openshift.io/deployment-config.latest-version": "1",
+            "openshift.io/deployment-config.name": "frontend",
+            "openshift.io/deployment.name": "frontend-1",
+            "openshift.io/scc": "restricted"
+        }
+    },
+    "spec": {
+        "volumes": [
+            {
+                "name": "default-token-xjiw0",
+                "secret": {
+                    "secretName": "default-token-xjiw0"
+                }
+            }
+        ],
+        "containers": [
+            {
+                "name": "ruby-helloworld",
+                "image": "172.30.212.157:5000/sample-project/origin-ruby-sample@sha256:98cd17803b05e7bdf53b7fdde7deb5a4e3a6fbd043fa3888e561d5af3b67d96a",
+                "ports": [
+                    {
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "ADMIN_USERNAME",
+                        "value": "admin6K1"
+                    },
+                    {
+                        "name": "ADMIN_PASSWORD",
+                        "value": "HEuLDu0b"
+                    },
+                    {
+                        "name": "MYSQL_USER",
+                        "value": "userFK4"
+                    },
+                    {
+                        "name": "MYSQL_PASSWORD",
+                        "value": "RX5nHDa6"
+                    },
+                    {
+                        "name": "MYSQL_DATABASE",
+                        "value": "root"
+                    }
+                ],
+                "resources": {},
+                "volumeMounts": [
+                    {
+                        "name": "default-token-xjiw0",
+                        "readOnly": true,
+                        "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                    }
+                ],
+                "terminationMessagePath": "/dev/termination-log",
+                "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                    "capabilities": {},
+                    "privileged": false,
+                    "seLinuxOptions": {
+                        "level": "s0:c6,c5"
+                    },
+                    "runAsUser": 1000040000
+                }
+            }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": "default",
+        "host": "master.piri.dev",
+        "imagePullSecrets": [
+            {
+                "name": "default-dockercfg-jln7d"
+            }
+        ]
+    },
+    "status": {
+        "phase": "Running",
+        "conditions": [
+            {
+                "type": "Ready",
+                "status": "True"
+            }
+        ],
+        "hostIP": "172.22.22.139",
+        "podIP": "172.17.0.48",
+        "startTime": "2015-07-09T16:22:22Z",
+        "containerStatuses": [
+            {
+                "name": "ruby-helloworld",
+                "state": {
+                    "running": {
+                        "startedAt": "2015-07-09T16:22:22Z"
+                    }
+                },
+                "lastState": {},
+                "ready": true,
+                "restartCount": 0,
+                "image": "172.30.212.157:5000/sample-project/origin-ruby-sample@sha256:98cd17803b05e7bdf53b7fdde7deb5a4e3a6fbd043fa3888e561d5af3b67d96a",
+                "imageID": "docker://743b8a89af249a4163f9f2c5dff79ae7b04c3297ff02e6e3eb33125211915176",
+                "containerID": "docker://66e478cca37735d95ca5625917f5bc7302038e2a1c42ee9c6febdb8fc7bce5fa"
+            }
+        ]
+    }
+}

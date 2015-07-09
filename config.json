@@ -29,7 +29,7 @@
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag",
-                        "name": "app-image:test"
+                        "name": "app-image:latest"
                     }
                 },
                 "resources": {},
@@ -40,14 +40,13 @@
                     "type": "Git"
                 },
                 "strategy": {
-                    "sourceStrategy": {
+                    "dockerStrategy": {
                         "from": {
                             "kind": "DockerImage",
-                            "name": "java:8"
-                        },
-                        "incremental": true
+                            "name": "library/java:8"
+                        }
                     },
-                    "type": "Source"
+                    "type": "Docker"
                 },
                 "triggers": [
                     {
@@ -61,6 +60,10 @@
                             "secret": "secret101"
                         },
                         "type": "generic"
+                    },
+                    {
+                        "imageChange": {},
+                        "type": "imageChange"
                     }
                 ]
             },
@@ -133,10 +136,10 @@
                                     },
                                     {
                                         "name": "DB_PASSWORD",
-                                        "value": "gA8uHMCG"
+                                        "value": "KsBnBUJF"
                                     }
                                 ],
-                                "image": "app-image:test",
+                                "image": "app-image",
                                 "imagePullPolicy": "IfNotPresent",
                                 "name": "app-container",
                                 "ports": [
@@ -161,13 +164,13 @@
                 "triggers": [
                     {
                         "imageChangeParams": {
-                            "automatic": true,
+                            "automatic": false,
                             "containerNames": [
                                 "app-container"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
-                                "name": "app-image:test"
+                                "name": "app-image:latest"
                             },
                             "lastTriggeredImage": ""
                         },
@@ -234,7 +237,7 @@
                                 "env": [
                                     {
                                         "name": "MYSQL_ROOT_PASSWORD",
-                                        "value": "gA8uHMCG"
+                                        "value": "KsBnBUJF"
                                     },
                                     {
                                         "name": "MYSQL_DATABASE",

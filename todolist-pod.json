@@ -1,0 +1,115 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "frontend-1-x6ipa",
+        "generateName": "frontend-1-",
+        "namespace": "todolist-project",
+        "selfLink": "/api/v1/namespaces/todolist-project/pods/frontend-1-x6ipa",
+        "uid": "4212a321-2658-11e5-95a2-080027d02fbe",
+        "resourceVersion": "3594",
+        "creationTimestamp": "2015-07-09T16:33:41Z",
+        "labels": {
+            "deployment": "frontend-1",
+            "deploymentconfig": "frontend",
+            "name": "frontend"
+        },
+        "annotations": {
+            "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"todolist-project\",\"name\":\"frontend-1\",\"uid\":\"401fd1d5-2658-11e5-95a2-080027d02fbe\",\"apiVersion\":\"v1\",\"resourceVersion\":\"3580\"}}",
+            "openshift.io/deployment-config.latest-version": "1",
+            "openshift.io/deployment-config.name": "frontend",
+            "openshift.io/deployment.name": "frontend-1",
+            "openshift.io/scc": "restricted"
+        }
+    },
+    "spec": {
+        "volumes": [
+            {
+                "name": "default-token-dr41q",
+                "secret": {
+                    "secretName": "default-token-dr41q"
+                }
+            }
+        ],
+        "containers": [
+            {
+                "name": "app-container",
+                "image": "app-image",
+                "ports": [
+                    {
+                        "containerPort": 8181,
+                        "protocol": "TCP"
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DB_HOST",
+                        "value": "localhost"
+                    },
+                    {
+                        "name": "DB_USERNAME",
+                        "value": "root"
+                    },
+                    {
+                        "name": "DB_PASSWORD",
+                        "value": "KsBnBUJF"
+                    }
+                ],
+                "resources": {},
+                "volumeMounts": [
+                    {
+                        "name": "default-token-dr41q",
+                        "readOnly": true,
+                        "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                    }
+                ],
+                "terminationMessagePath": "/dev/termination-log",
+                "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                    "capabilities": {},
+                    "privileged": false,
+                    "seLinuxOptions": {
+                        "level": "s0:c8,c7"
+                    },
+                    "runAsUser": 1000070000
+                }
+            }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": "default",
+        "host": "master.piri.dev",
+        "imagePullSecrets": [
+            {
+                "name": "default-dockercfg-dub5i"
+            }
+        ]
+    },
+    "status": {
+        "phase": "Pending",
+        "conditions": [
+            {
+                "type": "Ready",
+                "status": "False"
+            }
+        ],
+        "hostIP": "172.22.22.139",
+        "podIP": "172.17.0.54",
+        "startTime": "2015-07-09T16:33:44Z",
+        "containerStatuses": [
+            {
+                "name": "app-container",
+                "state": {
+                    "waiting": {
+                        "reason": "Error: image library/app-image:latest not found"
+                    }
+                },
+                "lastState": {},
+                "ready": false,
+                "restartCount": 0,
+                "image": "app-image",
+                "imageID": ""
+            }
+        ]
+    }
+}
