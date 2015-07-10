@@ -47,7 +47,7 @@
                     "dockerStrategy": {
                         "from": {
                             "kind": "DockerImage",
-                            "name": "library/java:latest"
+                            "name": "library/java:8"
                         }
                     },
                     "type": "Docker"
