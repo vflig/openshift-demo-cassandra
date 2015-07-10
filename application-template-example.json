@@ -72,20 +72,6 @@
       }
     },
     {
-      "kind": "ImageStream",
-      "apiVersion": "v1beta3",
-      "metadata": {
-        "name": "ruby-20-centos7",
-        "creationTimestamp": null
-      },
-      "spec": {
-        "dockerImageRepository": "openshift/ruby-20-centos7"
-      },
-      "status": {
-        "dockerImageRepository": ""
-      }
-    },
-    {
       "kind": "BuildConfig",
       "apiVersion": "v1beta3",
       "metadata": {
@@ -124,8 +110,8 @@
           "type": "Docker",
           "dockerStrategy": {
             "from": {
-              "kind": "ImageStreamTag",
-              "name": "ruby-20-centos7:latest"
+              "kind": "DockerImage",
+              "name": "openshift/ruby-20-centos7:latest"
             }
           }
         },
