@@ -265,7 +265,7 @@
                                         "value": "todolist"
                                     }
                                 ],
-                                "image": "library/mysql",
+                                "image": "openshift/mysql-55-centos7",
                                 "imagePullPolicy": "IfNotPresent",
                                 "name": "database-container",
                                 "ports": [
