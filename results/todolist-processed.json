@@ -257,6 +257,14 @@
                                 "capabilities": {},
                                 "env": [
                                     {
+                                        "name": "MYSQL_USER",
+                                        "value": "userD3W"
+                                    },
+                                    {
+                                        "name": "MYSQL_PASSWORD",
+                                        "value": "ithESRd8"
+                                    },
+                                    {
                                         "name": "MYSQL_ROOT_PASSWORD",
                                         "value": "MbVQhhIT"
                                     },
