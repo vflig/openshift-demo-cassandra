@@ -139,7 +139,7 @@
                                 "env": [
                                     {
                                         "name": "DB_HOST",
-                                        "value": "localhost"
+                                        "value": "database"
                                     },
                                     {
                                         "name": "DB_USERNAME",
