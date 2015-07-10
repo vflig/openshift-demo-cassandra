@@ -11,7 +11,7 @@
                 "labels": {
                     "template": "application-template-dockerbuild"
                 },
-                "name": "origin-ruby-sample"
+                "name": "origin-ruby-sample-image"
             },
             "spec": {},
             "status": {
@@ -33,7 +33,7 @@
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag",
-                        "name": "origin-ruby-sample:latest"
+                        "name": "origin-ruby-sample-image:latest"
                     }
                 },
                 "resources": {},
@@ -163,9 +163,9 @@
                                         "value": "root"
                                     }
                                 ],
-                                "image": "origin-ruby-sample",
+                                "image": "origin-ruby-sample-image",
                                 "imagePullPolicy": "IfNotPresent",
-                                "name": "ruby-helloworld",
+                                "name": "ruby-helloworld-container",
                                 "ports": [
                                     {
                                         "containerPort": 8080,
@@ -190,11 +190,11 @@
                         "imageChangeParams": {
                             "automatic": true,
                             "containerNames": [
-                                "ruby-helloworld"
+                                "ruby-helloworld-container"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
-                                "name": "origin-ruby-sample:latest"
+                                "name": "origin-ruby-sample-image:latest"
                             },
                             "lastTriggeredImage": ""
                         },
