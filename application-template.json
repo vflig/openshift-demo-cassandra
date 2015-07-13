@@ -229,6 +229,24 @@
       }
     },
     {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "database"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+
+    {
       "kind": "DeploymentConfig",
       "apiVersion": "v1beta3",
       "metadata": {
@@ -289,12 +307,26 @@
                   }
                 ],
                 "resources": {},
+                "volumeMounts": [
+                  {
+                    "name": "database-data",
+                    "mountPath": "/var/lib/mysql/data"
+                  }
+                ],
                 "terminationMessagePath": "/dev/termination-log",
                 "imagePullPolicy": "IfNotPresent",
                 "capabilities": {},
                 "securityContext": {
                   "capabilities": {},
                   "privileged": false
+                }
+              }
+            ],
+            "volumes": [
+              {
+                "name": "database-data",
+                "persistentVolumeClaim": {
+                  "claimName": "mysql"
                 }
               }
             ],
@@ -330,6 +362,11 @@
       "name": "MYSQL_DATABASE",
       "description": "database name",
       "value": "todolist"
+    },
+    {
+      "name": "VOLUME_CAPACITY",
+      "description": "Volume space available for data, e.g. 512Mi, 2Gi",
+      "value": "512Mi"
     }
   ]
 }
