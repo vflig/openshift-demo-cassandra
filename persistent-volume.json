@@ -2,24 +2,23 @@
   "kind": "List",
   "apiVersion": "v1beta3",
   "metadata": {},
-  "items": [
-    {
-  "kind": "PersistentVolume",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "pv0003"
-  },
-  "spec": {
-    "capacity": {
-      "storage" : "5Gi",
-      "accessMode" : ["ReadWriteOnce"],
-      "persistentVolumeReclaimPolicy": "Recycle",
-      "hostPath" : {
-        "path" : "/home/centos/openshift/mysql-volume"
+  "items": [{
+      "kind": "PersistentVolume",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pv0003"
+      },
+      "spec": {
+        "capacity": {
+          "storage" : "5Gi",
+          "accessMode" : "ReadWriteOnce",
+          "persistentVolumeReclaimPolicy": "Recycle",
+          "hostPath" : {
+            "path" : "/home/centos/openshift/mysql-volume"
+          }
+        }
+      },
+      "status": {
       }
-    }
-  },
-  "status": {
-
-  }
-}      ]}
+    }]
+}
