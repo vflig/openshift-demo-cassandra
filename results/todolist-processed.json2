@@ -64,6 +64,10 @@
                             "secret": "secret101"
                         },
                         "type": "generic"
+                    },
+                    {
+                        "imageChange": {},
+                        "type": "imageChange"
                     }
                 ]
             },
@@ -143,7 +147,7 @@
                                     },
                                     {
                                         "name": "DB_PASSWORD",
-                                        "value": "8QjXc15K"
+                                        "value": "ktpnfPl2"
                                     }
                                 ],
                                 "image": "app-image",
@@ -182,6 +186,9 @@
                             "lastTriggeredImage": ""
                         },
                         "type": "ImageChange"
+                    },
+                    {
+                        "type": "ConfigChange"
                     }
                 ]
             },
@@ -251,15 +258,15 @@
                                 "env": [
                                     {
                                         "name": "MYSQL_USER",
-                                        "value": "Xd0FiDDb"
+                                        "value": "6SWjCMPu"
                                     },
                                     {
                                         "name": "MYSQL_PASSWORD",
-                                        "value": "vGgDJam6"
+                                        "value": "2XfmkkEx"
                                     },
                                     {
                                         "name": "MYSQL_ROOT_PASSWORD",
-                                        "value": "8QjXc15K"
+                                        "value": "ktpnfPl2"
                                     },
                                     {
                                         "name": "MYSQL_DATABASE",
