@@ -11,6 +11,9 @@
       "apiVersion": "v1beta3",
       "metadata": {
         "name": "app-image",
+        "labels": {
+          "template": "application-template-dockerbuild"
+        },
         "creationTimestamp": null
       },
       "spec": {},
@@ -25,7 +28,8 @@
         "name": "app-build",
         "creationTimestamp": null,
         "labels": {
-          "name": "app-build"
+          "name": "app-build",
+          "template": "application-template-dockerbuild"
         }
       },
       "spec": {
@@ -41,10 +45,6 @@
             "generic": {
               "secret": "secret101"
             }
-          },
-          {
-            "type": "imageChange",
-            "imageChange": {}
           }
         ],
         "source": {
@@ -79,11 +79,15 @@
       "apiVersion": "v1beta3",
       "metadata": {
         "name": "frontend",
+        "labels": {
+          "template": "application-template-dockerbuild"
+        },
         "creationTimestamp": null
       },
       "spec": {
         "ports": [
           {
+            "name": "web",
             "protocol": "TCP",
             "port": 8181,
             "targetPort": 8181,
@@ -106,6 +110,9 @@
       "apiVersion": "v1beta3",
       "metadata": {
         "name": "frontend",
+        "labels": {
+          "template": "application-template-dockerbuild"
+        },
         "creationTimestamp": null
       },
       "spec": {
@@ -154,7 +161,7 @@
                 "env": [
                   {
                     "name": "DB_HOST",
-                    "value": "localhost"
+                    "value": "database"
                   },
                   {
                     "name": "DB_USERNAME",
@@ -188,11 +195,15 @@
       "apiVersion": "v1beta3",
       "metadata": {
         "name": "database",
+        "labels": {
+          "template": "application-template-dockerbuild"
+        },
         "creationTimestamp": null
       },
       "spec": {
         "ports": [
           {
+            "name": "db",
             "protocol": "TCP",
             "port": 3306,
             "targetPort": 3306,
@@ -215,6 +226,9 @@
       "apiVersion": "v1beta3",
       "metadata": {
         "name": "database",
+        "labels": {
+          "template": "application-template-dockerbuild"
+        },
         "creationTimestamp": null
       },
       "spec": {
@@ -242,7 +256,7 @@
             "containers": [
               {
                 "name": "database-container",
-                "image": "mysql",
+                "image": "openshift/mysql-55-centos7",
                 "ports": [
                   {
                     "containerPort": 3306,
@@ -250,6 +264,14 @@
                   }
                 ],
                 "env": [
+                  {
+                    "name": "MYSQL_USER",
+                    "value": "${MYSQL_USER}"
+                  },
+                  {
+                    "name": "MYSQL_PASSWORD",
+                    "value": "${MYSQL_PASSWORD}"
+                  },
                   {
                     "name": "MYSQL_ROOT_PASSWORD",
                     "value": "${DB_ROOT_PASSWORD}"
@@ -281,6 +303,18 @@
   "parameters": [
     {
       "name": "DB_ROOT_PASSWORD",
+      "description": "database password",
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{8}"
+    },
+    {
+      "name": "MYSQL_USER",
+      "description": "database user",
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{8}"
+    },
+    {
+      "name": "MYSQL_PASSWORD",
       "description": "database password",
       "generate": "expression",
       "from": "[a-zA-Z0-9]{8}"
