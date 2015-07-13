@@ -229,24 +229,6 @@
       }
     },
     {
-      "kind": "PersistentVolumeClaim",
-      "apiVersion": "v1beta3",
-      "metadata": {
-        "name": "database"
-      },
-      "spec": {
-        "accessModes": [
-          "ReadWriteOnce"
-        ],
-        "resources": {
-          "requests": {
-            "storage": "${VOLUME_CAPACITY}"
-          }
-        }
-      }
-    },
-
-    {
       "kind": "DeploymentConfig",
       "apiVersion": "v1beta3",
       "metadata": {
