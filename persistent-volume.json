@@ -10,7 +10,7 @@
       "accessMode" : ["ReadWriteOnce"],
       "persistentVolumeReclaimPolicy": "Recycle",
       "hostPath" : {
-        "path" : "﻿/home/centos/openshift/mysql-volume"
+        "path" : "/home/centos/openshift/mysql-volume"
       }
     }
   },
