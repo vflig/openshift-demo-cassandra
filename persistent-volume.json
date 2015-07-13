@@ -4,7 +4,7 @@
   "metadata": {},
   "items": [{
       "kind": "PersistentVolume",
-      "apiVersion": "v1",
+      "apiVersion": "v1beta3",
       "metadata": {
         "name": "pv0003"
       },
