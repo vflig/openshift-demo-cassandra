@@ -325,8 +325,8 @@
             "volumes": [
               {
                 "name": "database-data",
-                "persistentVolumeClaim": {
-                  "claimName": "mysql"
+                "hostPath": {
+                  "path": "/home/centos/openshift/mysql-volume"
                 }
               }
             ],
