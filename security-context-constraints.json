@@ -1,0 +1,22 @@
+{
+  "kind": "SecurityContextConstraints",
+  "apiVersion":"v1beta3",
+
+  "metadata": {
+    "name": "scc-test-admin",
+    "labels": {
+      "name": "scc-test-admin"
+    }
+  },
+
+  "allowPrivilegedContainer": false,
+  "allowHostDirVolumePlugin": true,
+  "runAsUser": {
+    "type": "MustRunAsRange"
+  },
+  "seLinuxContext": {
+    "type": "MustRunAs"
+  },
+  "users": ["test-admin"],
+  "groups": []
+}
