@@ -1,0 +1,85 @@
+{
+    "apiVersion": "v1beta3",
+    "kind": "DeploymentConfig",
+    "metadata": {
+        "creationTimestamp": null,
+        "name": "frontend"
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "frontend"
+        },
+        "strategy": {
+            "resources": {},
+            "type": "Recreate"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "name": "frontend"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "capabilities": {},
+                        "env": [
+                            {
+                                "name": "DB_HOST",
+                                "value": "database"
+                            },
+                            {
+                                "name": "DB_USERNAME",
+                                "value": "root"
+                            },
+                            {
+                                "name": "DB_PASSWORD",
+                                "value": "RDptEFAD"
+                            }
+                        ],
+                        "image": "todolist-image",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "todolist-container",
+                        "ports": [
+                            {
+                                "containerPort": 8181,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {},
+                            "privileged": false
+                        },
+                        "terminationMessagePath": "/dev/termination-log"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "restartPolicy": "Always",
+                "serviceAccount": ""
+            }
+        },
+        "triggers": [
+            {
+                "imageChangeParams": {
+                    "automatic": false,
+                    "containerNames": [
+                        "todolist-container"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "name": "todolist-image:latest"
+                    },
+                    "lastTriggeredImage": ""
+                },
+                "type": "ImageChange"
+            },
+            {
+                "type": "ConfigChange"
+            }
+        ]
+    },
+    "status": {}
+}

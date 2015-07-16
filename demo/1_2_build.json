@@ -1,0 +1,56 @@
+{
+    "apiVersion": "v1beta3",
+    "kind": "BuildConfig",
+    "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+            "name": "todolist-build"
+        },
+        "name": "todolist-build"
+    },
+    "spec": {
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "todolist-image:latest"
+            }
+        },
+        "resources": {},
+        "source": {
+            "git": {
+                "uri": "git://github.com/ichbinana/openshift-demo"
+            },
+            "type": "Git"
+        },
+        "strategy": {
+            "dockerStrategy": {
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "library/java:8"
+                }
+            },
+            "type": "Docker"
+        },
+        "triggers": [
+            {
+                "github": {
+                    "secret": "secret101"
+                },
+                "type": "github"
+            },
+            {
+                "generic": {
+                    "secret": "secret101"
+                },
+                "type": "generic"
+            },
+            {
+                "imageChange": {},
+                "type": "imageChange"
+            }
+        ]
+    },
+    "status": {
+        "lastVersion": 0
+    }
+}
