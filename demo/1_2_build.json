@@ -31,24 +31,7 @@
             },
             "type": "Docker"
         },
-        "triggers": [
-            {
-                "github": {
-                    "secret": "secret101"
-                },
-                "type": "github"
-            },
-            {
-                "generic": {
-                    "secret": "secret101"
-                },
-                "type": "generic"
-            },
-            {
-                "imageChange": {},
-                "type": "imageChange"
-            }
-        ]
+        "triggers": []
     },
     "status": {
         "lastVersion": 0
