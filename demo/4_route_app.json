@@ -2,11 +2,11 @@
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "route-edge",
+        "name": "route-todolist",
         "creationTimestamp": null
     },
     "spec": {
-        "host": "www.todolist.com",
+        "host": "todolist.one",
         "to": {
             "kind": "Service",
             "name": "frontend"
