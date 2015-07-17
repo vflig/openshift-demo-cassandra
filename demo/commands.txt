@@ -13,6 +13,9 @@ oc describe service docker-registry --config=openshift.local.config/master/admin
 - Create Router
 oadm router --create --credentials=openshift.local.config/master/openshift-router.kubeconfig --config=openshift.local.config/master/admin.kubeconfig
 
+- Crate Persistent Volume
+oc create -f demo/5_persistent_volume.json
+
 - Allow host dir
 oc edit scc restricted
 allowHostDirVolumePlugin: true
@@ -34,7 +37,6 @@ oc logs xxx
 
 - 2) Deployment
 oc create -n todolist-project -f demo/2_1_deploy_app.json
-oc create -n todolist-project -f demo/2_2_persistent_volume.json
 oc create -n todolist-project -f demo/2_3_deploy_db.json
 - Show deployment config via web ui
 

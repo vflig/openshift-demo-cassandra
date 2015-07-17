@@ -25,10 +25,10 @@
       "kind": "BuildConfig",
       "apiVersion": "v1beta3",
       "metadata": {
-        "name": "app-build",
+        "name": "todolist-build",
         "creationTimestamp": null,
         "labels": {
-          "name": "app-build",
+          "name": "todolist-build",
           "template": "application-template-dockerbuild"
         }
       },
@@ -226,6 +226,23 @@
       },
       "status": {
         "loadBalancer": {}
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "database"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
       }
     },
     {
