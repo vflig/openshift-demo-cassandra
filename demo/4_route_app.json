@@ -6,7 +6,7 @@
         "creationTimestamp": null
     },
     "spec": {
-        "host": "todolist.one",
+        "host": "my.todolist",
         "to": {
             "kind": "Service",
             "name": "frontend"
