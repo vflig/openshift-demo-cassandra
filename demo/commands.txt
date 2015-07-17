@@ -34,7 +34,8 @@ oc logs xxx
 
 - 2) Deployment
 oc create -n todolist-project -f demo/2_1_deploy_app.json
-oc create -n todolist-project -f demo/2_2_deploy_db.json
+oc create -n todolist-project -f demo/2_2_persistent_volume.json
+oc create -n todolist-project -f demo/2_3_deploy_db.json
 - Show deployment config via web ui
 
 - 3) Service
@@ -48,5 +49,5 @@ curl http://todolist.one
 curl --resolve todolist.one:80:172.22.22.139 http://todolist.one
 
 - 5) Persistent Volume
-oc create -n todolist-project -f demo/5_1_persistent_volume.json
-
+https://docs.openshift.org/latest/admin_guide/persistent_storage_nfs.html
+http://www.server-world.info/en/note?os=CentOS_7&p=nfs

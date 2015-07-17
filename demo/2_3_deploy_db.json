@@ -4,6 +4,23 @@
     "metadata": {},
     "items": [
         {
+            "kind": "PersistentVolumeClaim",
+            "apiVersion": "v1beta3",
+            "metadata": {
+                "name": "database-data-pv-claim"
+            },
+            "spec": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "resources": {
+                    "requests": {
+                        "storage": "5Gi"
+                    }
+                }
+            }
+        },
+        {
             "apiVersion": "v1beta3",
             "kind": "DeploymentConfig",
             "metadata": {
@@ -65,8 +82,8 @@
                                 "terminationMessagePath": "/dev/termination-log",
                                 "volumeMounts": [
                                     {
-                                        "mountPath": "/var/lib/mysql/data",
-                                        "name": "database-data"
+                                        "name": "database-data",
+                                        "mountPath": "/var/lib/mysql/data"
                                     }
                                 ]
                             }
@@ -76,10 +93,10 @@
                         "serviceAccount": "",
                         "volumes": [
                             {
-                                "hostPath": {
-                                    "path": "/home/centos/openshift/mysql-volume"
-                                },
-                                "name": "database-data"
+                                "name": "database-data",
+                                "persistentVolumeClaim": {
+                                    "claimName": "database-data-pv-claim"
+                                }
                             }
                         ]
                     }
