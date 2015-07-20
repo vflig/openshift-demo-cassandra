@@ -72,8 +72,8 @@
             "spec": {
                 "containers": [
                     {
-                        "name": "cassandra",
-                        "image": "library/cassandra",
+                        "name": "db_cassandra",
+                        "image": "library/cassandra:2.0",
                         "ports": [
                             {
                                 "containerPort": 9042,
