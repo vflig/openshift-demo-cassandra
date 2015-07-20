@@ -72,7 +72,7 @@
             "spec": {
                 "containers": [
                     {
-                        "name": "db_cassandra",
+                        "name": "cassandra-seed-1",
                         "image": "library/cassandra:2.0",
                         "ports": [
                             {
