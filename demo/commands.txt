@@ -16,11 +16,6 @@ oadm router --create --credentials=openshift.local.config/master/openshift-route
 - Crate Persistent Volume
 oc create -f demo/5_persistent_volume.json
 
-- Allow host dir
-oc edit scc restricted
-allowHostDirVolumePlugin: true
-chmod 777 mysql-volume/
-
 - Create Project
 oc login
 test-admin
