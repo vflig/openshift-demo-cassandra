@@ -7,7 +7,7 @@
             "kind": "PersistentVolumeClaim",
             "apiVersion": "v1beta3",
             "metadata": {
-                "name": "cassandra-seed-1-pv-claim"
+                "name": "cassandra-node-pv-claim"
             },
             "spec": {
                 "accessModes": [
@@ -24,10 +24,10 @@
             "kind": "Service",
             "apiVersion": "v1beta3",
             "metadata": {
-                "name": "cassandra-seed-1",
+                "name": "cassandra",
                 "creationTimestamp": null,
                 "labels": {
-                    "cassandra-seed": "1"
+                    "name": "cassandra"
                 }
             },
             "spec": {
@@ -62,7 +62,7 @@
                     }
                 ],
                 "selector": {
-                    "cassandra-seed": "1"
+                    "name": "cassandra"
                 },
                 "portalIP": "",
                 "type": "ClusterIP",
