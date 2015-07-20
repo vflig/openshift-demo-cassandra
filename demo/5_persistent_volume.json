@@ -37,6 +37,78 @@
       },
       "persistentVolumeReclaimPolicy": "Recycle"
     }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+      "name": "nfs3"
+    },
+    "spec": {
+      "capacity": {
+        "storage": "5Gi"
+      },
+      "accessModes": [ "ReadWriteOnce" ],
+      "nfs": {
+        "path": "/home/centos/openshift/nfs3",
+        "server": "172.22.22.139"
+      },
+      "persistentVolumeReclaimPolicy": "Recycle"
+    }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+      "name": "nfs4"
+    },
+    "spec": {
+      "capacity": {
+        "storage": "5Gi"
+      },
+      "accessModes": [ "ReadWriteOnce" ],
+      "nfs": {
+        "path": "/home/centos/openshift/nfs4",
+        "server": "172.22.22.139"
+      },
+      "persistentVolumeReclaimPolicy": "Recycle"
+    }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+      "name": "nfs5"
+    },
+    "spec": {
+      "capacity": {
+        "storage": "5Gi"
+      },
+      "accessModes": [ "ReadWriteOnce" ],
+      "nfs": {
+        "path": "/home/centos/openshift/nfs5",
+        "server": "172.22.22.139"
+      },
+      "persistentVolumeReclaimPolicy": "Recycle"
+    }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+      "name": "nfs6"
+    },
+    "spec": {
+      "capacity": {
+        "storage": "5Gi"
+      },
+      "accessModes": [ "ReadWriteOnce" ],
+      "nfs": {
+        "path": "/home/centos/openshift/nfs6",
+        "server": "172.22.22.139"
+      },
+      "persistentVolumeReclaimPolicy": "Recycle"
+    }
   }]
 }
 
