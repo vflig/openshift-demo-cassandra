@@ -101,7 +101,7 @@
                                 "name": "cassandra-seed-1-pv",
                                 "mountPath": "/var/lib/cassandra/data"
                             }
-                        ]
+                        ],
                         "imagePullPolicy": "IfNotPresent",
                         "capabilities": {},
                         "securityContext": {
