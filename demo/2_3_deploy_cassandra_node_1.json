@@ -7,7 +7,7 @@
             "kind": "PersistentVolumeClaim",
             "apiVersion": "v1beta3",
             "metadata": {
-                "name": "cassandra-seed-1-pv-claim"
+                "name": "db-cassandra-seed-1-pv-claim"
             },
             "spec": {
                 "accessModes": [
@@ -24,10 +24,10 @@
             "kind": "Service",
             "apiVersion": "v1beta3",
             "metadata": {
-                "name": "cassandra-seed-1",
+                "name": "db-cassandra-seed-1",
                 "creationTimestamp": null,
                 "labels": {
-                    "cassandra-seed": "1"
+                    "db-cassandra-seed": "1"
                 }
             },
             "spec": {
@@ -48,7 +48,7 @@
                     }
                 ],
                 "selector": {
-                    "cassandra-seed": "1"
+                    "db-cassandra-seed": "1"
                 },
                 "portalIP": "",
                 "type": "ClusterIP",
@@ -62,17 +62,17 @@
             "kind": "Pod",
             "apiVersion": "v1beta3",
             "metadata": {
-                "name": "cassandra-seed-1",
+                "name": "db-cassandra-seed-1",
                 "creationTimestamp": null,
                 "labels": {
                     "name": "cassandra",
-                    "cassandra-seed": "1"
+                    "db-cassandra-seed": "1"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "cassandra-seed-1",
+                        "name": "cassandra",
                         "image": "library/cassandra:2.0",
                         "ports": [
                             {
@@ -87,7 +87,7 @@
                         "env": [
                             {
                                 "name": "CASSANDRA_SEEDS",
-                                "value": "cassandra-seed-1,cassandra-seed-2"
+                                "value": "db-cassandra-seed-1,cassandra-seed-2"
                             },
                             {
                                 "name": "CASSANDRA_CLUSTER_NAME",
@@ -98,7 +98,7 @@
                         "terminationMessagePath": "/dev/termination-log",
                         "volumeMounts": [
                             {
-                                "name": "cassandra-seed-1-pv",
+                                "name": "db-cassandra-seed-1-pv",
                                 "mountPath": "/var/lib/cassandra/data"
                             }
                         ],
@@ -115,9 +115,9 @@
                 "serviceAccount": "",
                 "volumes": [
                     {
-                        "name": "cassandra-seed-1-pv",
+                        "name": "db-cassandra-seed-1-pv",
                         "persistentVolumeClaim": {
-                            "claimName": "cassandra-seed-1-pv-claim"
+                            "claimName": "db-cassandra-seed-1-pv-claim"
                         }
                     }
                 ]
