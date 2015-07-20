@@ -16,6 +16,11 @@ oadm router --create --credentials=openshift.local.config/master/openshift-route
 - Crate Persistent Volume
 oc create -f demo/5_persistent_volume.json
 
+- Add privilieged right for cassandra pod
+oc edit scc privileged
+- add last line:
+test-admin
+
 - Create Project
 oc login
 test-admin
