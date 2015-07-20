@@ -32,7 +32,7 @@ oc logs xxx
 
 - 2) Deployment
 oc create -n todolist-project -f demo/2_1_deploy_app.json
-oc create -n todolist-project -f demo/2_2_deploy_db.json
+oc create -n todolist-project -f demo/2_3_deploy_cassandra_node_1.json
 - Show deployment config via web ui
 
 - 3) Service
