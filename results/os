@@ -1,0 +1,210 @@
+[
+{
+    "Id": "0fa221bdcf2965ba51ecfa23f2424681106886fa39cd2ac8c2bd98751a6a0f67",
+    "Created": "2015-07-20T13:30:15.798823577Z",
+    "Path": "/docker-entrypoint.sh",
+    "Args": [
+        "cassandra",
+        "-f"
+    ],
+    "State": {
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 4,
+        "Error": "",
+        "StartedAt": "2015-07-20T13:30:16.340620207Z",
+        "FinishedAt": "2015-07-20T13:30:16.452201747Z"
+    },
+    "Image": "fcf3a202b5b7b2afeadc46b06d90e8b60957d00b2b4af9a1992c14f181853ab2",
+    "NetworkSettings": {
+        "Bridge": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "HairpinMode": false,
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "LinkLocalIPv6Address": "",
+        "LinkLocalIPv6PrefixLen": 0,
+        "MacAddress": "",
+        "NetworkID": "",
+        "PortMapping": null,
+        "Ports": null,
+        "SandboxKey": "",
+        "SecondaryIPAddresses": null,
+        "SecondaryIPv6Addresses": null
+    },
+    "ResolvConfPath": "/var/lib/docker/containers/ed2bbfed3bbf5d57093f5ff214ea9b6dc6410c7894a83e6a84c60e8957e40d49/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/ed2bbfed3bbf5d57093f5ff214ea9b6dc6410c7894a83e6a84c60e8957e40d49/hostname",
+    "HostsPath": "/var/lib/docker/containers/ed2bbfed3bbf5d57093f5ff214ea9b6dc6410c7894a83e6a84c60e8957e40d49/hosts",
+    "LogPath": "/var/lib/docker/containers/0fa221bdcf2965ba51ecfa23f2424681106886fa39cd2ac8c2bd98751a6a0f67/0fa221bdcf2965ba51ecfa23f2424681106886fa39cd2ac8c2bd98751a6a0f67-json.log",
+    "Name": "/k8s_cassandra.2ef1fefd_cassandra-seed-1_todolist-project_349cec69-2ee0-11e5-a221-080027d02fbe_0a3fc933",
+    "RestartCount": 0,
+    "Driver": "devicemapper",
+    "ExecDriver": "native-0.2",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "Volumes": {
+        "/dev/termination-log": "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/containers/cassandra/0fa221bdcf2965ba51ecfa23f2424681106886fa39cd2ac8c2bd98751a6a0f67",
+        "/var/lib/cassandra/data": "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/volumes/kubernetes.io~nfs/nfs1",
+        "/var/run/secrets/kubernetes.io/serviceaccount": "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/volumes/kubernetes.io~secret/default-token-0bdq1"
+    },
+    "VolumesRW": {
+        "/dev/termination-log": true,
+        "/var/lib/cassandra/data": true,
+        "/var/run/secrets/kubernetes.io/serviceaccount": false
+    },
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+        "Binds": [
+            "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/volumes/kubernetes.io~nfs/nfs1:/var/lib/cassandra/data",
+            "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/volumes/kubernetes.io~secret/default-token-0bdq1:/var/run/secrets/kubernetes.io/serviceaccount:ro",
+            "/home/centos/openshift/openshift.local.volumes/pods/349cec69-2ee0-11e5-a221-080027d02fbe/containers/cassandra/0fa221bdcf2965ba51ecfa23f2424681106886fa39cd2ac8c2bd98751a6a0f67:/dev/termination-log"
+        ],
+        "ContainerIDFile": "",
+        "LxcConf": null,
+        "Memory": 0,
+        "MemorySwap": -1,
+        "CpuShares": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "CpuQuota": 0,
+        "BlkioWeight": 0,
+        "OomKillDisable": false,
+        "Privileged": false,
+        "PortBindings": null,
+        "Links": null,
+        "PublishAllPorts": false,
+        "Dns": [
+            "172.22.22.139",
+            "194.246.122.2"
+        ],
+        "DnsSearch": [
+            "todolist-project.svc.cluster.local",
+            "svc.cluster.local",
+            "cluster.local",
+            "SSG-550",
+            "piri.dev"
+        ],
+        "ExtraHosts": null,
+        "VolumesFrom": null,
+        "Devices": null,
+        "NetworkMode": "container:ed2bbfed3bbf5d57093f5ff214ea9b6dc6410c7894a83e6a84c60e8957e40d49",
+        "IpcMode": "container:ed2bbfed3bbf5d57093f5ff214ea9b6dc6410c7894a83e6a84c60e8957e40d49",
+        "PidMode": "",
+        "UTSMode": "",
+        "CapAdd": null,
+        "CapDrop": null,
+        "RestartPolicy": {
+            "Name": "",
+            "MaximumRetryCount": 0
+        },
+        "SecurityOpt": [
+            "label:level:s0:c6,c0"
+        ],
+        "ReadonlyRootfs": false,
+        "Ulimits": null,
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {}
+        },
+        "CgroupParent": ""
+    },
+    "Config": {
+        "Hostname": "cassandra-seed-1",
+        "Domainname": "",
+        "User": "1000030000",
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "AttachStderr": false,
+        "PortSpecs": null,
+        "ExposedPorts": {
+            "7000/tcp": {},
+            "7001/tcp": {},
+            "7199/tcp": {},
+            "9042/tcp": {},
+            "9160/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+            "CASSANDRA_SEEDS=cassandra-seed-1,cassandra-seed-2",
+            "CASSANDRA_CLUSTER_NAME=todolist",
+            "DATABASE_SERVICE_HOST=172.30.225.206",
+            "DATABASE_PORT_3306_TCP_PORT=3306",
+            "DATABASE_PORT_3306_TCP_ADDR=172.30.225.206",
+            "CASSANDRA_SEED_1_SERVICE_PORT=9042",
+            "CASSANDRA_SEED_1_PORT=tcp://172.30.22.114:9042",
+            "KUBERNETES_RO_PORT_80_TCP_ADDR=172.30.0.1",
+            "DATABASE_SERVICE_PORT=3306",
+            "DATABASE_PORT=tcp://172.30.225.206:3306",
+            "CASSANDRA_SEED_1_SERVICE_HOST=172.30.22.114",
+            "CASSANDRA_SEED_1_PORT_9160_TCP_ADDR=172.30.22.114",
+            "KUBERNETES_SERVICE_PORT=443",
+            "KUBERNETES_PORT_443_TCP_PORT=443",
+            "DATABASE_PORT_3306_TCP=tcp://172.30.225.206:3306",
+            "FRONTEND_SERVICE_PORT=80",
+            "CASSANDRA_SEED_1_SERVICE_PORT_THRIFT=9160",
+            "KUBERNETES_SERVICE_HOST=172.30.0.2",
+            "DATABASE_PORT_3306_TCP_PROTO=tcp",
+            "FRONTEND_SERVICE_HOST=172.30.35.213",
+            "CASSANDRA_SEED_1_SERVICE_PORT_CQL=9042",
+            "CASSANDRA_SEED_1_PORT_9042_TCP_PORT=9042",
+            "CASSANDRA_SEED_1_PORT_9042_TCP_ADDR=172.30.22.114",
+            "CASSANDRA_SEED_1_PORT_9160_TCP_PROTO=tcp",
+            "KUBERNETES_PORT_443_TCP=tcp://172.30.0.2:443",
+            "KUBERNETES_RO_SERVICE_PORT=80",
+            "KUBERNETES_RO_PORT=tcp://172.30.0.1:80",
+            "KUBERNETES_RO_PORT_80_TCP_PROTO=tcp",
+            "DATABASE_SERVICE_PORT_DB=3306",
+            "CASSANDRA_SEED_1_PORT_9160_TCP_PORT=9160",
+            "KUBERNETES_PORT_443_TCP_PROTO=tcp",
+            "KUBERNETES_RO_SERVICE_HOST=172.30.0.1",
+            "KUBERNETES_RO_PORT_80_TCP=tcp://172.30.0.1:80",
+            "KUBERNETES_RO_PORT_80_TCP_PORT=80",
+            "CASSANDRA_SEED_1_PORT_9160_TCP=tcp://172.30.22.114:9160",
+            "KUBERNETES_PORT=tcp://172.30.0.2:443",
+            "KUBERNETES_PORT_443_TCP_ADDR=172.30.0.2",
+            "FRONTEND_PORT=tcp://172.30.35.213:80",
+            "FRONTEND_PORT_80_TCP_PROTO=tcp",
+            "CASSANDRA_SEED_1_PORT_9042_TCP=tcp://172.30.22.114:9042",
+            "FRONTEND_SERVICE_PORT_WEB=80",
+            "FRONTEND_PORT_80_TCP=tcp://172.30.35.213:80",
+            "FRONTEND_PORT_80_TCP_PORT=80",
+            "FRONTEND_PORT_80_TCP_ADDR=172.30.35.213",
+            "CASSANDRA_SEED_1_PORT_9042_TCP_PROTO=tcp",
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "CASSANDRA_VERSION=2.1.8",
+            "CASSANDRA_CONFIG=/etc/cassandra"
+        ],
+        "Cmd": [
+            "cassandra",
+            "-f"
+        ],
+        "Image": "library/cassandra",
+        "Volumes": {
+            "/var/lib/cassandra/data": {}
+        },
+        "VolumeDriver": "",
+        "WorkingDir": "",
+        "Entrypoint": [
+            "/docker-entrypoint.sh"
+        ],
+        "NetworkDisabled": false,
+        "MacAddress": "",
+        "OnBuild": null,
+        "Labels": {
+            "io.kubernetes.pod.name": "todolist-project/cassandra-seed-1"
+        }
+    }
+}
+]
