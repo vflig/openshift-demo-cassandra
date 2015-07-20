@@ -73,7 +73,7 @@
                 "containers": [
                     {
                         "name": "cassandra",
-                        "image": "library/cassandra:2.0",
+                        "image": "library/cassandra:2.1",
                         "ports": [
                             {
                                 "containerPort": 9042,
