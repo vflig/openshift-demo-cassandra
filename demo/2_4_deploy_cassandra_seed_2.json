@@ -27,7 +27,7 @@
                 "name": "cassandra-seed-2",
                 "creationTimestamp": null,
                 "labels": {
-                    "cassandra-seed": "1"
+                    "cassandra-seed": "2"
                 }
             },
             "spec": {
@@ -48,7 +48,7 @@
                     }
                 ],
                 "selector": {
-                    "cassandra-seed": "1"
+                    "cassandra-seed": "2"
                 },
                 "portalIP": "",
                 "type": "ClusterIP",
@@ -66,7 +66,7 @@
                 "creationTimestamp": null,
                 "labels": {
                     "name": "cassandra",
-                    "cassandra-seed": "1"
+                    "cassandra-seed": "2"
                 }
             },
             "spec": {
