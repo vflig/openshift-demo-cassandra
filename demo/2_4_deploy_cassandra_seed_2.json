@@ -54,7 +54,7 @@
                         "nodePort": 0
                     },
                     {
-                        "name": "internode_tls",
+                        "name": "internodetls",
                         "protocol": "TCP",
                         "port": 7001,
                         "targetPort": 7001,
