@@ -18,7 +18,7 @@
         "resources": {},
         "source": {
             "git": {
-                "uri": "git://github.com/ichbinana/openshift-demo"
+                "uri": "git://github.com/vflig/openshift-demo-cassandra"
             },
             "type": "Git"
         },

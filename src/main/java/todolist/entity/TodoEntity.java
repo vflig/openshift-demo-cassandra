@@ -1,19 +1,19 @@
 package todolist.entity;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.cassandra.mapping.Column;
+import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.Table;
 
 /**
  * Created by Johannes on 08.12.2014.
  */
-@Entity
-@Table(name="todo")
+@Table(value="todo")
 public class TodoEntity {
     private int id;
     private String text;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
+    @PrimaryKey
     public int getId() {
         return id;
     }
@@ -22,7 +22,6 @@ public class TodoEntity {
         this.id = id;
     }
 
-    @Column(name = "text")
     public String getText() {
         return text;
     }

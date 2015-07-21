@@ -3,10 +3,12 @@ package todolist.controller;
 import todolist.dto.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import todolist.entity.TodoEntity;
 import todolist.repository.TodoRepository;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -31,7 +33,9 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Todo create(@RequestBody @Valid Todo todo) {
-        return new Todo(todoRepository.save(todo.toEntity()));
+        TodoEntity entity = todo.toEntity();
+        entity.setId(new Random().nextInt());
+        return new Todo(todoRepository.save(entity));
     }
 
 }
