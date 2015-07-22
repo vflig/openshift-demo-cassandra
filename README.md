@@ -29,7 +29,7 @@ oc new-project demo-application
 
 - 1) Build
 oc create -n demo-application -f demo/1_1_imagestream.json
-oc create -n demo-application -f demo/1_2_build.json
+oc create -n demo-application -f demo/1_2_build_todolist.json
 - Show and start build in WebUI
 ﻿https://172.22.22.139:8443
 - Show log output via
@@ -37,21 +37,28 @@ oc get pods
 oc logs xxx
 
 - 2) Deployment
-oc create -n demo-application -f demo/2_1_deploy_app.json
+docker ps
+oc create -n demo-application -f demo/2_1_deploy_todolist.json
 oc create -n demo-application -f demo/2_3_deploy_cassandra_seed_1.json
 oc create -n demo-application -f demo/2_4_deploy_cassandra_seed_2.json
 - Show deployment config via web ui
+docker ps
 
 - 3) Service
-oc create -n demo-application -f demo/3_1_service_database.json
-oc create -n demo-application -f demo/3_2_service_app.json
+oc create -n demo-application -f demo/3_1_service_cassandra.json
+oc create -n demo-application -f demo/3_2_service_todolist.json
 
 - 4) Route
-oc create -n demo-application -f demo/4_route_app.json
-
-curl http://todolist.one
+- Curl and show that the todolist is not accessable
+curl http://my.todolist
+oc create -n demo-application -f demo/4_route_todolist.json
+- Curl and show that the todolist is accessable
+curl http://my.todolist
 curl --resolve todolist.one:80:172.22.22.139 http://todolist.one
 
 - 5) Persistent Volume
 https://docs.openshift.org/latest/admin_guide/persistent_storage_nfs.html
 http://www.server-world.info/en/note?os=CentOS_7&p=nfs
+
+- 6)
+Kill and restart nodes
