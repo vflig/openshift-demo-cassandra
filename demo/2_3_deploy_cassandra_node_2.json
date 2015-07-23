@@ -101,6 +101,56 @@
                 ]
             },
             "status": {}
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1beta3",
+            "metadata": {
+                "name": "cassandra-node-2",
+                "creationTimestamp": null,
+                "labels": {}
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "cql",
+                        "protocol": "TCP",
+                        "port": 9042,
+                        "targetPort": 9042,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "thrift",
+                        "protocol": "TCP",
+                        "port": 9160,
+                        "targetPort": 9160,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "internode",
+                        "protocol": "TCP",
+                        "port": 7000,
+                        "targetPort": 7000,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "internodetls",
+                        "protocol": "TCP",
+                        "port": 7001,
+                        "targetPort": 7001,
+                        "nodePort": 0
+                    }
+                ],
+                "selector": {
+                    "cassandra-node": "2"
+                },
+                "portalIP": "",
+                "type": "ClusterIP",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
         }
     ]
 }
