@@ -64,7 +64,11 @@
                                 "value": "todolist"
                             }
                         ],
-                        "resources": {},
+                        "resources": {
+                            "limits": {
+                                "cpu": "100m"
+                            }
+                        },
                         "terminationMessagePath": "/dev/termination-log",
                         "volumeMounts": [
                             {
