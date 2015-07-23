@@ -28,6 +28,7 @@
                 "creationTimestamp": null,
                 "labels": {
                     "name": "cassandra",
+                    "cassandra-node": "2"
                 }
             },
             "spec": {
