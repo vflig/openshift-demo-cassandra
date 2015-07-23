@@ -12,7 +12,7 @@
         "output": {
             "to": {
                 "kind": "ImageStreamTag",
-                "name": "todolist-cassandra-image:latest"
+                "name": "todolist-image:latest"
             }
         },
         "resources": {},

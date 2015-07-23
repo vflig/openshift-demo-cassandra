@@ -39,9 +39,9 @@
                                 "value": "RDptEFAD"
                             }
                         ],
-                        "image": "todolist-cassandra-image",
+                        "image": "todolist-image",
                         "imagePullPolicy": "IfNotPresent",
-                        "name": "todolist-cassandra-container",
+                        "name": "todolist-container",
                         "ports": [
                             {
                                 "containerPort": 8181,
@@ -66,11 +66,11 @@
                 "imageChangeParams": {
                     "automatic": false,
                     "containerNames": [
-                        "todolist-cassandra-container"
+                        "todolist-container"
                     ],
                     "from": {
                         "kind": "ImageStreamTag",
-                        "name": "todolist-cassandra-image:latest"
+                        "name": "todolist-image:latest"
                     },
                     "lastTriggeredImage": ""
                 },

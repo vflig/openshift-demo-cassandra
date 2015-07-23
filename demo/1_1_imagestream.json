@@ -3,7 +3,7 @@
     "kind": "ImageStream",
     "metadata": {
         "creationTimestamp": null,
-        "name": "todolist-cassandra-image"
+        "name": "todolist-image"
     },
     "spec": {},
     "status": {
