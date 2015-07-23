@@ -39,8 +39,6 @@ oc logs xxx
 - 2) Deployment
 docker ps
 oc create -n demo-application -f demo/2_1_deploy_todolist.json
-oc create -n demo-application -f demo/3_3_service_cassandra_node_1.json
-oc create -n demo-application -f demo/3_4_service_cassandra_node_2.json
 oc create -n demo-application -f demo/2_2_deploy_cassandra_node_1.json
 oc create -n demo-application -f demo/2_3_deploy_cassandra_node_2.json
 oc create -n demo-application -f demo/2_4_deploy_cassandra_node_3.json
@@ -65,3 +63,4 @@ http://www.server-world.info/en/note?os=CentOS_7&p=nfs
 
 - 6)
 Kill and restart nodes
+oc scale dc frontend --replicas=2
