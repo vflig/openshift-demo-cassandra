@@ -1,0 +1,98 @@
+{
+    "kind": "List",
+    "apiVersion": "v1beta3",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "PersistentVolumeClaim",
+            "apiVersion": "v1beta3",
+            "metadata": {
+                "name": "cassandra-node-4-pvc"
+            },
+            "spec": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "resources": {
+                    "requests": {
+                        "storage": "5Gi"
+                    }
+                }
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1beta3",
+            "metadata": {
+                "name": "cassandra-node-4",
+                "creationTimestamp": null,
+                "labels": {
+                    "name": "cassandra",
+                    "cassandra-node": "2"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "cassandra",
+                        "image": "library/cassandra:2.1",
+                        "ports": [
+                            {
+                                "containerPort": 9042,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 9160,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 7000,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 7001,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "env": [
+                            {
+                                "name": "CASSANDRA_SEEDS",
+                                "value": "cassandra-node-1,cassandra-node-2"
+                            },
+                            {
+                                "name": "CASSANDRA_CLUSTER_NAME",
+                                "value": "todolist"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "name": "cassandra-node-4-pv",
+                                "mountPath": "/var/lib/cassandra/data"
+                            }
+                        ],
+                        "imagePullPolicy": "IfNotPresent",
+                        "capabilities": {},
+                        "securityContext": {
+                            "capabilities": {},
+                            "privileged": true
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccount": "",
+                "volumes": [
+                    {
+                        "name": "cassandra-node-4-pv",
+                        "persistentVolumeClaim": {
+                            "claimName": "cassandra-node-4-pvc"
+                        }
+                    }
+                ]
+            },
+            "status": {}
+        }
+    ]
+}

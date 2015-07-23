@@ -39,14 +39,18 @@ oc logs xxx
 - 2) Deployment
 docker ps
 oc create -n demo-application -f demo/2_1_deploy_todolist.json
-oc create -n demo-application -f demo/2_3_deploy_cassandra_seed_1.json
-oc create -n demo-application -f demo/2_4_deploy_cassandra_seed_2.json
+oc create -n demo-application -f demo/2_2_deploy_cassandra_node_1.json
+oc create -n demo-application -f demo/2_3_deploy_cassandra_node_2.json
+oc create -n demo-application -f demo/2_4_deploy_cassandra_node_3.json
+oc create -n demo-application -f demo/2_5_deploy_cassandra_node_4.json
 - Show deployment config via web ui
 docker ps
 
 - 3) Service
-oc create -n demo-application -f demo/3_1_service_cassandra.json
-oc create -n demo-application -f demo/3_2_service_todolist.json
+oc create -n demo-application -f demo/3_1_service_todolist.json
+oc create -n demo-application -f demo/3_2_service_cassandra.json
+oc create -n demo-application -f demo/3_2_service_cassandra_node_1.json
+oc create -n demo-application -f demo/3_2_service_cassandra_node_2.json
 
 - 4) Route
 - Curl and show that the todolist is not accessable
