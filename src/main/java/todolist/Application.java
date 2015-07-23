@@ -12,8 +12,10 @@ public class Application {
 
     public static void main(String[] args) {
 
+        System.out.println("Connecting to db: " + System.getProperty("DB_HOST"));
+
         Cluster cluster = Cluster.builder()
-                .addContactPoint(System.getProperty("DB_HOST"))
+                .addContactPoints(System.getProperty("DB_HOST").split(","))
                 .build();
 
         Session session = cluster.connect();

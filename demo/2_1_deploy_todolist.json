@@ -28,15 +28,7 @@
                         "env": [
                             {
                                 "name": "DB_HOST",
-                                "value": "database"
-                            },
-                            {
-                                "name": "DB_USERNAME",
-                                "value": "root"
-                            },
-                            {
-                                "name": "DB_PASSWORD",
-                                "value": "RDptEFAD"
+                                "value": "cassandra-node-1,cassandra-node-2"
                             }
                         ],
                         "image": "todolist-image",
