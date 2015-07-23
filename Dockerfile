@@ -1,6 +1,6 @@
 FROM java:8
 
-COPY target/todolist-0.1.0.jar /apps/todolist-0.1.0.jar
+COPY target/todolist-cassandra-0.1.0.jar /apps/todolist-cassandra-0.1.0.jar
 
 EXPOSE 8181
 
