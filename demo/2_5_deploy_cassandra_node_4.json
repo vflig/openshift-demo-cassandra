@@ -27,8 +27,7 @@
                 "name": "cassandra-node-4",
                 "creationTimestamp": null,
                 "labels": {
-                    "name": "cassandra",
-                    "cassandra-node": "2"
+                    "name": "cassandra"
                 }
             },
             "spec": {

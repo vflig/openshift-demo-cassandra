@@ -20,4 +20,6 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     protected String getContactPoints() {
         return System.getProperty("DB_HOST");
     }
+
+
 }

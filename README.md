@@ -44,7 +44,6 @@ oc create -n demo-application -f demo/3_4_service_cassandra_node_2.json
 oc create -n demo-application -f demo/2_2_deploy_cassandra_node_1.json
 oc create -n demo-application -f demo/2_3_deploy_cassandra_node_2.json
 oc create -n demo-application -f demo/2_4_deploy_cassandra_node_3.json
-oc create -n demo-application -f demo/2_5_deploy_cassandra_node_4.json
 - Show deployment config via web ui
 docker ps
 
