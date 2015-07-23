@@ -62,6 +62,10 @@
                             {
                                 "name": "CASSANDRA_CLUSTER_NAME",
                                 "value": "todolist"
+                            },
+                            {
+                                "name": "CASSANDRA_BROADCAST_ADDRESS",
+                                "value": "cassandra-node-1"
                             }
                         ],
                         "resources": {

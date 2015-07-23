@@ -19,7 +19,7 @@ public class Application {
                 .build();
 
         Session session = cluster.connect();
-        session.execute("CREATE KEYSPACE IF NOT EXISTS todolist WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 2 };");
+        session.execute("CREATE KEYSPACE IF NOT EXISTS todolist WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };");
         session.execute("CREATE TABLE IF NOT EXISTS todolist.todo (" +
                         "id int PRIMARY KEY," +
                         "text text);");
