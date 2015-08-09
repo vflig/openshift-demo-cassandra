@@ -28,7 +28,7 @@
                         "env": [
                             {
                                 "name": "DB_HOST",
-                                "value": "database"
+                                "value": "cassandra-node-1,cassandra-node-2,cassandra-node-3"
                             }
                         ],
                         "image": "todolist-image",
