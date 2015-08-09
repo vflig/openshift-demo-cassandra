@@ -39,7 +39,7 @@ oc create -n demo-application -f demo/1_2_build_todolist.json
 ﻿https://172.22.22.139:8443
 - Show log output via
 oc get pods
-oc logs xxx
+oc logs todolist-build-1-build
 
 - 2) Deployment
 docker ps

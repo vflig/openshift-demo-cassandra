@@ -57,7 +57,7 @@
                         "env": [
                             {
                                 "name": "CASSANDRA_SEEDS",
-                                "value": "cassandra-node-1,cassandra-node-2"
+                                "value": "cassandra-node-1,cassandra-node-2,cassandra-node-3"
                             },
                             {
                                 "name": "CASSANDRA_CLUSTER_NAME",

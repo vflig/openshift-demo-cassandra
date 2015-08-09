@@ -27,7 +27,8 @@
                 "name": "cassandra-node-3",
                 "creationTimestamp": null,
                 "labels": {
-                    "name": "cassandra"
+                    "name": "cassandra",
+                    "cassandra-node": "3"
                 }
             },
             "spec": {
@@ -56,11 +57,15 @@
                         "env": [
                             {
                                 "name": "CASSANDRA_SEEDS",
-                                "value": "cassandra-node-1,cassandra-node-2"
+                                "value": "cassandra-node-1,cassandra-node-2,cassandra-node-3"
                             },
                             {
                                 "name": "CASSANDRA_CLUSTER_NAME",
                                 "value": "todolist"
+                            },
+                            {
+                                "name": "CASSANDRA_BROADCAST_ADDRESS",
+                                "value": "cassandra-node-3"
                             }
                         ],
                         "resources": {
@@ -96,6 +101,56 @@
                 ]
             },
             "status": {}
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1beta3",
+            "metadata": {
+                "name": "cassandra-node-3",
+                "creationTimestamp": null,
+                "labels": {}
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "cql",
+                        "protocol": "TCP",
+                        "port": 9042,
+                        "targetPort": 9042,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "thrift",
+                        "protocol": "TCP",
+                        "port": 9160,
+                        "targetPort": 9160,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "internode",
+                        "protocol": "TCP",
+                        "port": 7000,
+                        "targetPort": 7000,
+                        "nodePort": 0
+                    },
+                    {
+                        "name": "internodetls",
+                        "protocol": "TCP",
+                        "port": 7001,
+                        "targetPort": 7001,
+                        "nodePort": 0
+                    }
+                ],
+                "selector": {
+                    "cassandra-node": "3"
+                },
+                "portalIP": "",
+                "type": "ClusterIP",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
         }
     ]
 }
