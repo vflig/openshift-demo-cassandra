@@ -2,10 +2,10 @@
     "kind": "Service",
     "apiVersion": "v1beta3",
     "metadata": {
-        "name": "cassandra",
+        "name": "database",
         "creationTimestamp": null,
         "labels": {
-            "name": "cassandra"
+            "name": "database"
         }
     },
     "spec": {
@@ -40,7 +40,7 @@
             }
         ],
         "selector": {
-            "name": "cassandra"
+            "name": "database"
         },
         "portalIP": "",
         "type": "ClusterIP",

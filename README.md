@@ -22,6 +22,11 @@ allowPrivilegedContainer: true
 - change runAsUser to:
 type: RunAsAny
 
+
+====================================
+Start with Demo HERE
+====================================
+
 - Create Project
 oc login
 test-admin
@@ -46,8 +51,8 @@ oc create -n demo-application -f demo/2_4_deploy_cassandra_node_3.json
 docker ps
 
 - 3) Service
-oc create -n demo-application -f demo/3_1_service_todolist.json
-oc create -n demo-application -f demo/3_2_service_cassandra.json
+oc create -n demo-application -f demo/3_1_service_frontend.json
+oc create -n demo-application -f demo/3_2_service_database.json
 
 - 4) Route
 - Curl and show that the todolist is not accessable

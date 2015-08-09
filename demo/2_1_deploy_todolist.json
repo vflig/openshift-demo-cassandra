@@ -3,12 +3,12 @@
     "kind": "DeploymentConfig",
     "metadata": {
         "creationTimestamp": null,
-        "name": "frontend"
+        "name": "todolist"
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "frontend"
+            "name": "todolist"
         },
         "strategy": {
             "resources": {},
@@ -18,7 +18,7 @@
             "metadata": {
                 "creationTimestamp": null,
                 "labels": {
-                    "name": "frontend"
+                    "name": "todolist"
                 }
             },
             "spec": {
@@ -28,7 +28,7 @@
                         "env": [
                             {
                                 "name": "DB_HOST",
-                                "value": "cassandra-node-1,cassandra-node-2"
+                                "value": "database"
                             }
                         ],
                         "image": "todolist-image",

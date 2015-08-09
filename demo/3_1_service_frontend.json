@@ -17,7 +17,7 @@
             }
         ],
         "selector": {
-            "name": "frontend"
+            "name": "todolist"
         },
         "sessionAffinity": "None",
         "type": "ClusterIP"
