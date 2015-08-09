@@ -52,7 +52,6 @@ docker ps
 
 - 3) Service
 oc create -n demo-application -f demo/3_1_service_frontend.json
-oc create -n demo-application -f demo/3_2_service_database.json
 
 - 4) Route
 - Curl and show that the todolist is not accessable
