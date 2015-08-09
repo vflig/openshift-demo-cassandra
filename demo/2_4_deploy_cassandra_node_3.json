@@ -70,7 +70,8 @@
                         ],
                         "resources": {
                             "limits": {
-                                "cpu": "100m"
+                                "cpu": "100m",
+                                "memory": "500Mi"
                             }
                         },
                         "terminationMessagePath": "/dev/termination-log",
